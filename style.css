@@ -1,325 +1,158 @@
-@import url('https://fonts.googleapis.com/css2?family=Recursive:wght@400;500;600;700;800;900&display=swap');
-
-* {
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&display=swap');
+*{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-
-body {
-    font-family: 'Recursive', sans-serif;
-    overflow: hidden;
+body{
+    font-family: 'Cairo', sans-serif;
+    
+    transition: 0.7s ease;
 }
-
-.container {
-    max-height: 100vh;
-    width: 100%;
-    background-color: #131414;
-    background-image: linear-gradient(135deg, #131414 0%, #000000 100%);
-    transform-style: preserve-3d;
-    overflow: hidden;
+::-webkit-scrollbar{
+    width: 0;
 }
-
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10;
-    height: 5rem;
-}
-
-.menu {
-    max-width: 72rem;
-    width: 100%;
-    height: 100%;
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #fff;
-}
-
-.logo {
-    font-size: 1.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    line-height: 4rem;
-    margin-top: 20px;
-}
-
-.logo span {
-    font-size: 1.8rem;
-    margin-left: 5px;
-    color: #e20f2f;
-}
-
-.hamburger-menu {
-    height: 4rem;
-    width: 3rem;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-
-.bar {
-    width: 1.9rem;
-    height: 1.5px;
-    border-radius: 2px;
-    background-color: #eee;
-    transition: 0.5s;
-    position: relative;
-}
-
-.bar::before,
-.bar::after {
-    content: "";
-    position: absolute;
-    width: inherit;
-    height: inherit;
-    background-color: #eee;
-    transition: 0.5s;
-}
-
-.bar::before {
-    transform: translateY(-9px);
-}
-
-.bar::after {
-    transform: translateY(9px);
-}
-
-.main-container {
-    overflow: hidden;
-}
-
-.main {
-    position: relative;
-    width: 100%;
-    left: 0;
-    z-index: 5;
-    overflow: hidden;
-    transform-origin: left;
-    transform-style: preserve-3d;
-    transition: 0.5s;
-}
-
-header {
-    min-height: 100vh;
-    width: 100%;
-    background: url(https://c4.wallpaperflare.com/wallpaper/956/990/558/subaru-impreza-subaru-impreza-wrx-sti-blobeye-hd-wallpaper-preview.jpg) no-repeat top center / cover;
-    position: relative;
-}
-
-.overlay {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.312);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    color: #fff;
-}
-
-.inner {
-    max-width: 35rem;
+.menu-bar{
+    background-color: #2e2e2e;
     text-align: center;
-    color: #fff;
-    padding: 0 2rem;
+    width: 100%;
+    height: 20%;
+    z-index: 999999;
 }
-
-.title {
-    font-size: 3rem;
-}
-
-.description {
-    margin: 10px 0;
-    text-align: center;
-    width: 50%;
-    font-size: 1.5rem;
-}
-
-.btn {
-    margin-top: 1rem;
-    padding: 0.6rem 1.8rem;
-    background-color: #e20f2f;
-    border: none;
-    border-radius: 25px;
-    color: #fff;
-    text-transform: uppercase;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.container.active .bar {
-    transform: rotate(360deg);
-    background-color: transparent;
-}
-
-.container.active .bar::before {
-    transform: translateY(0) rotate(45deg);
-}
-
-.container.active .bar::after {
-    transform: translateY(0) rotate(-45deg);
-}
-
-.container.active .main {
-    animation: main-animation 0.5s ease;
-    cursor: pointer;
-    transform: perspective(1300px) rotateY(20deg) translateY(10px) translateZ(310px) scale(0.5);
-}
-
-@keyframes main-animation {
-    from {
-        transform: translate(0);
-    }
-
-    to {
-        transform: perspective(1300px) rotateY(20deg) translateY(10px) translateZ(310px) scale(0.5);
-    }
-}
-
-.links {
-    position: absolute;
-    width: 30%;
-    right: 0;
-    top: 0;
-    height: 100vh;
-    z-index: 2;
-    overflow: hidden;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin-left: 10px;
-}
-
-ul {
+.menu-bar ul{
+    display: inline-flex;
     list-style: none;
+    color: #fff;
 }
-
-ul li.active a {
-    color: #e20f2f;
+.menu-bar ul li{
+    width: 120px;
+    margin: 15px;
+    padding: 10px;
+    transition: 0.5s ease;
+    font-size: 11px;
 }
+.menu-bar ul li a{
 
-.links a {
     text-decoration: none;
-    color: #eee;
-    padding: 0.7rem 0;
-    display: inline-block;
-    font-size: 1.8rem;
-    font-weight: 300;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: 0.3s;
-    opacity: 0;
-    transform: translateY(10px);
-    animation: hide 0.5s forwards ease;
+    color: #fff;
 }
-
-.links a:hover {
-    color: #e20f2f;
+.active,.menu-bar ul li:hover{
+    background-color: #414141;
+    border-radius: 3px;
 }
-
-.container.active .links a {
-    animation: appear 0.5s forwards ease var(--i);
+.menu-bar i{
+    margin-right: 8px;
 }
-
-@keyframes appear {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0px);
-    }
+.sub-menu-1{
+    display: none;
 }
-
-@keyframes hide {
-    from {
-        opacity: 1;
-        transform: translateY(0px);
-    }
-
-    to {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-}
-
-.shadow {
+.menu-bar ul li:hover .sub-menu-1{
+    display: block;
     position: absolute;
-    width: 100%;
+    background-color: #5b5b5b;
+    margin-top: 10px;
+    margin-left: -8px;
+    border-radius: 0 25px;
+}
+.menu-bar ul li:hover .sub-menu-1 ul{
+    display: block;
+    margin: 10px;
+    /* to align sub items vertically */
+}
+.menu-bar ul li:hover .sub-menu-1 ul li{
+    width: 150px;
+    padding: 10px;
+    border-bottom: 1px dotted #fff;
+    background: transparent;
+    border-radius: 0;
+    text-align: center;
+}
+.menu-bar ul li:hover .sub-menu-1 ul li:last-child{
+    border-bottom: none;
+}
+.menu-bar ul li:hover .sub-menu-1 ul li a:hover{
+    color: #c5bfbf ;
+}
+.fa-angle-right{
+    float: right;
+}
+.subM{
+    display: none;
+}
+.subMain:hover  .subM{
+    position: absolute;
+    display: block;
+    margin-top: -35px;
+    margin-left: 140px;
+    background-color: #706f6f;
+    border-radius: 0 20px;
+}
+/* .small{
+    font-size: 11px;
+    margin: 0 30px;
+} */
+
+
+.content{
     height: 100vh;
-    top: 0;
-    left: 0;
-    transform-style: preserve-3d;
-    transform-origin: left;
-    transition: 0.5s;
-    background-color: #fff;
+    width: 100%;
 }
-
-.shadow.one {
-    z-index: -1;
-    opacity: 0.15;
+.content .image{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* position: relative; */
 }
-
-.shadow.two {
-    z-index: -2;
-    opacity: 0.1;
+.image img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
-
-.container.active .shadow.one {
-    animation: shadow-one 0.6s ease-out;
-    transform: perspective(1300px) rotateY(20deg) translateY(10px) translateZ(215px) scale(0.5);
+.content .title{
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    z-index: 0;
+} 
+.content .title h1{
+    text-align: center;
+    font-size: 2.3em;
+    font-weight: 800;
 }
-
-@keyframes shadow-one {
-    0% {
-        transform: translate(0);
-    }
-
-    5% {
-        transform: perspective(1300px) rotateY(20deg) translateY(10px) translateZ(310px) scale(0.5);
-    }
-
-    100% {
-        transform: perspective(1300px) rotateY(20deg) translateY(10px) translateZ(215px) scale(0.5);
-    }
+.content .title h2{
+    text-align: center;
+    font-weight: 400;
 }
-
-.container.active .shadow.two {
-    animation: shadow-two 0.6s ease-out;
-    transform: perspective(1300px) rotateY(20deg) translateY(10px) translateZ(120px) scale(0.5);
+.content .content-btns{
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%,-50%);
+    margin: 15px;
+    flex-wrap: wrap;
 }
-
-@keyframes shadow-two {
-    0% {
-        transform: translate(0);
-    }
-
-    20% {
-        transform: perspective(1300px) rotateY(20deg) translateY(10px) translateZ(310px) scale(0.5);
-    }
-
-    100% {
-        transform: perspective(1300px) rotateY(20deg) translateY(10px) translateZ(120px) scale(0.5);
-    }
+.content .content-btns button{
+    margin: 20px;
+    width: 40%;
+    font-size: 25px;
+    font-family: 'Cairo', sans-serif;
+    padding: 35px;
+    border:none;
+    border-radius: 300px;
+    color: #fff;
+    background-color: #2e2e2e;
+    cursor: pointer;
 }
-
-.container.active .main:hover+.shadow.one {
-    transform: perspective(1300px) rotateY(20deg) translateY(10px) translateZ(230px) scale(0.5);
+.title-co{
+    position: absolute;
+    top: 70%;
+    left: 22%;
+    z-index: 0;
 }
-
-.container.active .main:hover {
-    transform: perspective(1300px) rotateY(20deg) translateY(10px) translateZ(340px) scale(0.5);
+.title-co h1{
+    text-align: center;
+        font-size: 2.3em;
+        font-weight: 800;
 }
